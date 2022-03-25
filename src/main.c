@@ -6,21 +6,12 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 11:52:10 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/24 16:57:47 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/25 13:43:44 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pb(node_t **a, node_t **b)
-{
-	node_t	*temp;
-
-	temp = *a;
-	*a = temp->next;
-	temp->next = *b;
-	*b = temp;
-}
 
 // prints out a linked list
 void	print_linked_list(node_t **head)
@@ -30,14 +21,15 @@ void	print_linked_list(node_t **head)
 	tmp = *head;
 	while (tmp != NULL)
 	{
-		printf("value: %d, addres: %p, nextInLine%p\n", tmp->value, tmp, tmp->next);
+		printf("value: %d, addres: %p, nextInLine: %p\n", tmp->value, tmp, tmp->next);
 		tmp = tmp->next;
 	}
-	if (tmp == NULL)
-		printf("addres= %p\n", tmp);
+	// if (tmp == NULL)
+	// 	printf("addres= %p\n", tmp);
 }
 
-
+//Creates a new node with value: value
+//This nodes points to NULL (next = NULL)
 node_t	*create_new_node(int value)
 {
 	node_t	*node;
@@ -49,6 +41,9 @@ node_t	*create_new_node(int value)
 	return (node);
 }
 
+//Makes a linked list with the command line arguments
+//Each node is added at the end of the list
+//"./pushswap 1 2 3 4" : 1 2 3 4 -> NULL
 void	make_link_list(node_t **list, char **argv, int argc)
 {
 	node_t	*new_node;
@@ -73,6 +68,30 @@ void	make_link_list(node_t **list, char **argv, int argc)
 	}
 }
 
+//Prints out the stacks and calls the actions
+void	print_stacks_call_actions(node_t **a, node_t **b)
+{
+	
+	printf("STACK A:\n");
+	print_linked_list(a);
+	printf("STACK B:\n");
+	print_linked_list(b);
+	printf("\n");
+			
+	rrr(a, b);
+	pb(a, b);
+	pb(a, b);
+	pb(a, b);
+	sb(b);
+	pa(a, b);
+	
+	printf("\n");
+	printf("STACK A:\n");
+	print_linked_list(a);
+	printf("STACK B:\n");
+	print_linked_list(b);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -82,22 +101,7 @@ int	main(int argc, char **argv)
 	list_a = NULL;
 	list_b = NULL;
 	make_link_list(&list_a, argv, argc);
-	
-	printf("** BEFORE PUSH b **\n");
-	printf("STACK A:\n");
-	print_linked_list(&list_a);
-	printf("STACK B:\n");
-	print_linked_list(&list_b);
-			
-	pb(&list_a, &list_b);
-	pb(&list_a, &list_b);
-	pb(&list_a, &list_b);
-	
-	printf("\n** AFTER PUSH b **\n");
-	printf("STACK A:\n");
-	print_linked_list(&list_a);
-	printf("STACK B:\n");
-	print_linked_list(&list_b);
+	print_stacks_call_actions(&list_a, &list_b);
 
 	// system("leaks push_swap");
 	return (0);
