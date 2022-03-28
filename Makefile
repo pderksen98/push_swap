@@ -6,7 +6,7 @@
 #    By: pderksen <pderksen@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/25 11:24:38 by pderksen      #+#    #+#                  #
-#    Updated: 2022/03/25 13:39:33 by pderksen      ########   odam.nl          #
+#    Updated: 2022/03/25 15:12:50 by pderksen      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,11 @@ CFLAGS := -Wall -Wextra -Werror -fsanitize=address -g
 endif
 
 SRCS := src/main.c \
-		src/swap.c \
-		src/push.c \
-		src/first_to_last.c \
-		src/last_to_first.c
+		src/actions/swap.c \
+		src/actions/push.c \
+		src/actions/first_to_last.c \
+		src/actions/last_to_first.c \
+		src/relative_number.c
 HEADERFILES := push_swap.h
 
 LIBFT := libft/libft.a

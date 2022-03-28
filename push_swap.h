@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:45 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/25 13:38:57 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/25 16:03:01 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct node 
 {
 	int		value;
+	int		r_value;
 	struct 	node* next;
 }	node_t;
 
@@ -34,3 +35,7 @@ void	print_linked_list(node_t **head);
 node_t	*create_new_node(int value);
 void	make_link_list(node_t **list, char **argv, int argc);
 int		main(int argc, char **argv);
+
+void	put_relative_number(node_t **list);
+int		node_counter(node_t **list);
+int		find_lowest_value(node_t **list);
