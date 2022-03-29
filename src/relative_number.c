@@ -6,24 +6,43 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 15:12:58 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/28 18:21:21 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/29 15:25:23 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_link(node_t **list)
+//Makes a copy of the original list
+//Same values but different pointers
+void	*make_copy(node_t **list, node_t **copy_list)
 {
+	node_t	*copy;
 	node_t	*temp;
+	node_t	*new_node;
+	int		i;
 
+	i = 0;
 	temp = *list;
 	while (temp != NULL)
 	{
-		printf("value: %d	addres: %p	 nextInLine: %p\n", temp->value, temp, temp->next);
+		new_node = create_new_node(temp->value);
+		if (i == 0)
+		{
+			copy = new_node;
+			*copy_list = copy;
+		}
+		else
+		{
+			copy->next = new_node;
+			copy = new_node;
+		}
+		i++;
 		temp = temp->next;
 	}
+	return (copy);
 }
 
+//Counts the number of node in 'list'
 int	node_counter(node_t **list)
 {
 	node_t	*temp;
@@ -39,39 +58,48 @@ int	node_counter(node_t **list)
 	return (i);
 }
 
-void	bubble_sort(node_t **list, int nodes)
+//Bubble sorts the values (not pointers) of the copy
+//If value A > value B -> swap A to the right
+//Sorts values in acending order
+void	bubble_sort_copy(node_t **list, int nodes)
 {
-	int	j;
-	
-	j = nodes - 1;
-	while (j > 0)
-	{
-		
+	node_t	*temp;
+	int		tmp;
+	int		j;
 
-		j--;
+	while (nodes > 1)
+	{
+		j = nodes - 1;
+		temp = *list;
+		while (j > 0)
+		{
+			if (temp->value > temp->next->value)
+			{
+				tmp = temp->next->value;
+				temp->next->value = temp->value;
+				temp->value = tmp;
+			}
+			temp = temp->next;
+			j--;
+		}
+		nodes--;
 	}
 }
 
-
-
-
-
-
-
-
-
-void	put_relative_number(node_t **list)
+//Calls the functions in order to give the r_value to the list
+// values:  4 -> 2 -> -3 -> 17 
+// r_values 2 -> 1 ->  0 -> 3 
+//Makes transformation to binary easier/faster
+void	add_relative_number(node_t **list)
 {
 	node_t	*copy_list;
-	int	nodes;
+	int		nodes;
 
-	copy_list = *list;
+	copy_list = NULL;
+	make_copy(list, &copy_list);
 	nodes = node_counter(list);
-
-	// printf("** BEFORE BUBBLE SORT **\n");
-	// print_link(&copy_list);
-	bubble_sort(&copy_list, nodes);
-	
-	// printf("\n** AFTER BUBBLE SORT **\n");
-	// print_link(&copy_list);
+	bubble_sort_copy(&copy_list, nodes);
+	give_r_value_to_copy(&copy_list);
+	give_r_value_to_list(list, &copy_list);
+	free_list(copy_list);
 }

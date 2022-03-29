@@ -6,19 +6,25 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:45 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/25 16:03:01 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/29 15:28:56 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include <unistd.h> //write
 
+//i is to check whether the node already has correct r_value
+//0 if not, 1 if yes
 typedef struct node 
 {
 	int		value;
 	int		r_value;
+	int		i;
 	struct 	node* next;
 }	node_t;
+
+void	print_stacks_call_actions(node_t **a, node_t **b);
+void	print_linked_list(node_t **head);
 
 void	pb(node_t **a, node_t **b);
 void	pa(node_t **a, node_t **b);
@@ -35,7 +41,10 @@ void	print_linked_list(node_t **head);
 node_t	*create_new_node(int value);
 void	make_link_list(node_t **list, char **argv, int argc);
 int		main(int argc, char **argv);
-
-void	put_relative_number(node_t **list);
+void	add_relative_number(node_t **list);
 int		node_counter(node_t **list);
-int		find_lowest_value(node_t **list);
+void	*make_copy(node_t **list, node_t **copy_list);
+void	give_r_value_to_list(node_t **list, node_t **copy);
+void	give_r_value_to_copy(node_t **copy);
+void	bubble_sort_copy(node_t **list, int nodes);
+void	free_list(node_t *list);
