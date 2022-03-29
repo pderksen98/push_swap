@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:45 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/29 15:28:56 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/29 19:18:13 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ typedef struct node
 	struct 	node* next;
 }	node_t;
 
-void	print_stacks_call_actions(node_t **a, node_t **b);
+typedef enum e_true
+{
+	TRUE = 1,
+	FALSE = 0
+}	t_true;
+
+void	print_stacks(node_t **a, node_t **b);
 void	print_linked_list(node_t **head);
 
 void	pb(node_t **a, node_t **b);
@@ -48,3 +54,4 @@ void	give_r_value_to_list(node_t **list, node_t **copy);
 void	give_r_value_to_copy(node_t **copy);
 void	bubble_sort_copy(node_t **list, int nodes);
 void	free_list(node_t *list);
+void	radix(node_t **a, node_t **b, int nodes);

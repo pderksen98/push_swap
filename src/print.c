@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/29 15:27:15 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/29 15:28:33 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/29 18:59:14 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,11 @@ void	print_linked_list(node_t **head)
 }
 
 //Prints out the stacks and calls the actions
-void	print_stacks_call_actions(node_t **a, node_t **b)
+void	print_stacks(node_t **a, node_t **b)
 {
 	printf("STACK A:\n");
 	print_linked_list(a);
 	printf("STACK B:\n");
 	print_linked_list(b);
-	printf("\n");
-
-	rrr(a, b);
-	pb(a, b);
-	pb(a, b);
-	pb(a, b);
-	sb(b);
-	pa(a, b);
-
-	printf("\n");
-	printf("STACK A:\n");
-	print_linked_list(a);
-	printf("STACK B:\n");
-	print_linked_list(b);
+	printf("\n\n");
 }
