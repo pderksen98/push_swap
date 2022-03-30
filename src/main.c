@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 11:52:10 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/29 19:38:08 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/30 13:13:18 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	free_list(node_t *list)
 	}
 }
 
-
 //Creates a new node with value: value
 //This nodes points to NULL (next = NULL)
 node_t	*create_new_node(int value)
@@ -33,7 +32,7 @@ node_t	*create_new_node(int value)
 	node_t	*node;
 
 	node = malloc(sizeof(node_t));
-	ft_check_malloc(node);
+	check_malloc(node);
 	node->value = value;
 	node->next = NULL;
 	return (node);
@@ -77,14 +76,18 @@ int	main(int argc, char **argv)
 
 	list_a = NULL;
 	list_b = NULL;
+	error_check(argc, argv);
 	make_link_list(&list_a, argv, argc);
 	add_relative_number(&list_a);
 	nodes = node_counter(&list_a);
 	
+	//print_stacks(&list_a, &list_b);
+
+	if (nodes <= 5)
+		hard_code(&list_a, &list_b, nodes)
+	else
+		radix(&list_a, &list_b, nodes);
 	print_stacks(&list_a, &list_b);
-	radix(&list_a, &list_b, nodes);
-	print_stacks(&list_a, &list_b);
-	
 	//system("leaks push_swap");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/29 15:27:15 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/29 18:59:14 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/30 12:11:17 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_linked_list(node_t **head)
 	tmp = *head;
 	while (tmp != NULL)
 	{
-		printf("value: %d, r_value: %d,  addres: %p, nextInLine: %p\n", tmp->value, tmp->r_value, tmp, tmp->next);
+		printf("value: %d, addres: %p, nextInLine: %p\n", tmp->value, tmp, tmp->next);
 		tmp = tmp->next;
 	}
 	// if (tmp == NULL)

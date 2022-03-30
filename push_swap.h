@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:45 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/29 19:18:13 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/30 12:35:10 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,7 @@ void	give_r_value_to_copy(node_t **copy);
 void	bubble_sort_copy(node_t **list, int nodes);
 void	free_list(node_t *list);
 void	radix(node_t **a, node_t **b, int nodes);
+void	error_check(int argc, char **argv);
+void	error_message(char *string);
+void	check_number(char *str);
+void	check_malloc(void *ptr);
