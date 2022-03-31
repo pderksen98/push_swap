@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 11:52:10 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/30 13:13:18 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/31 15:48:23 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,12 @@ int	main(int argc, char **argv)
 	make_link_list(&list_a, argv, argc);
 	add_relative_number(&list_a);
 	nodes = node_counter(&list_a);
-	
-	//print_stacks(&list_a, &list_b);
-
-	if (nodes <= 5)
-		hard_code(&list_a, &list_b, nodes)
-	else
-		radix(&list_a, &list_b, nodes);
-	print_stacks(&list_a, &list_b);
-	//system("leaks push_swap");
+	if (nodes > 1)
+	{
+		if (nodes <= 5)
+			hard_code(&list_a, &list_b, nodes);
+		else
+			radix(&list_a, &list_b, nodes);
+	}
 	return (0);
 }

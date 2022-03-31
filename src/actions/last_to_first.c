@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 13:35:03 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/25 16:42:48 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/31 15:45:04 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	rra(node_t **a)
 
 	last = *a;
 	if (last == NULL)
-	{
-		printf("RRA NOT EXECUTED: NO NODE IN A\n");
 		return ;
-	}
 	while (last->next != NULL)
 	{
 		if (last->next->next == NULL)
@@ -31,14 +28,11 @@ void	rra(node_t **a)
 		last = last->next;
 	}
 	if (last == *a)
-	{
-		printf("RRA NOT EXECUTED: 1 NODE IN A\n");
 		return ;
-	}
 	temp->next = NULL;
 	last->next = *a;
 	*a = last;
-	printf("** RRA **\n");
+	printf("rra\n");
 }
 
 //Last node in list B will become the first node in B
@@ -49,10 +43,7 @@ void	rrb(node_t **b)
 
 	last = *b;
 	if (last == NULL)
-	{
-		printf("RRB NOT EXECUTED: NO NODE IN B\n");
 		return ;
-	}
 	while (last->next != NULL)
 	{
 		if (last->next->next == NULL)
@@ -60,14 +51,11 @@ void	rrb(node_t **b)
 		last = last->next;
 	}
 	if (last == *b)
-	{
-		printf("RRA NOT EXECUTED: 1 NODE IN B\n");
 		return ;
-	}
 	temp->next = NULL;
 	last->next = *b;
 	*b = last;
-	printf("** RRB **\n");
+	printf("rrb\n");
 }
 
 //Calls both rra and rrb functions

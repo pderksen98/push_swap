@@ -6,7 +6,7 @@
 #    By: pderksen <pderksen@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/25 11:24:38 by pderksen      #+#    #+#                  #
-#    Updated: 2022/03/30 12:08:45 by pderksen      ########   odam.nl          #
+#    Updated: 2022/03/31 15:49:44 by pderksen      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,10 @@ SRCS := src/main.c \
 		src/actions/last_to_first.c \
 		src/relative_number.c \
 		src/relative_number_2.c \
-		src/print.c \
 		src/radix.c \
-		src/error.c
+		src/error.c \
+		src/error_2.c \
+		src/hard_code.c
 HEADERFILES := push_swap.h
 
 LIBFT := libft/libft.a

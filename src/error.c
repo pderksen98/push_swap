@@ -6,43 +6,50 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/29 19:39:32 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/30 12:34:44 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/31 15:52:11 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-//Prints error message 'string' and exits the program
-void	error_message(char *string)
+//Makes integer array with input arguments
+//This is done to check whether there are duplicates
+int	*make_int_array(int argc, char **argv)
 {
-	ft_putstr_fd("ERROR: ", 2);
-	ft_putstr_fd(string, 2);
-	exit(1);
-}
-
-//Checks if the character string 'str' only contains integers
-void	check_number(char *str)
-{
+	int	*array;
 	int	i;
 
 	i = 0;
-	if (str[i] == '-')
-		i++;
-	if (!str[i])
-		error_message("Wrong argument(s) given! (Only integers)\n");
-	while (str[i])
+	array = malloc(sizeof(int) * argc);
+	check_malloc(array);
+	while (i < (argc - 1))
 	{
-		if (str[i] < '0' || str[i] > '9')
-			error_message("Wrong argument(s) given! (Only integers) \n");
+		array[i] = (ft_atoi(argv[i + 1]));
 		i++;
 	}
+	return (array);
 }
 
-//Checks if the memmory is succesfully allocated
-void	check_malloc(void *ptr)
+//Checks if there are duplicate input arguments
+void	check_duplicate(int *array, int argc)
 {
-	if (ptr == NULL)
-		error_message("Malloc returned NULL pointer\n");	
+	int	i;
+	int	j;
+	int	value;
+
+	i = 0;
+	while (i < (argc - 1))
+	{
+		value = array[i];
+		j = i + 1;
+		while (j < (argc - 1))
+		{
+			if (array[j] == value)
+				error_message("Duplicate input arguments\n");
+			j++;
+		}
+		i++;
+	}
 }
 
 //Checks the if the input is correct
@@ -51,6 +58,7 @@ void	check_malloc(void *ptr)
 void	error_check(int argc, char **argv)
 {
 	int	i;
+	int	*array;
 
 	i = 1;
 	if (argc == 1)
@@ -60,4 +68,7 @@ void	error_check(int argc, char **argv)
 		check_number(argv[i]);
 		i++;
 	}
+	array = make_int_array(argc, argv);
+	check_duplicate(array, argc);
+	free(array);
 }

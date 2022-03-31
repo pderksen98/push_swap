@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:36 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/25 15:12:12 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/31 15:45:14 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,11 @@ void	pb(node_t **a, node_t **b)
 
 	temp = *a;
 	if (temp == NULL)
-	{
-		printf("PB NOT EXECUTED: NO NODE IN A\n");
 		return ;
-	}
 	*a = temp->next;
 	temp->next = *b;
 	*b = temp;
-	printf("** PB **\n");
+	printf("pb\n");
 }
 
 //Pushes the first node of list_b to list_a
@@ -40,12 +37,9 @@ void	pa(node_t **a, node_t **b)
 
 	temp = *b;
 	if (temp == NULL)
-	{
-		printf("PA NOT EXECUTED: NO NODE IN B\n");
 		return ;
-	}
 	*b = temp->next;
 	temp->next = *a;
 	*a = temp;
-	printf("** PA **\n");
+	printf("pa\n");
 }

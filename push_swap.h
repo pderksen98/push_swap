@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:45 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/30 12:35:10 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/03/31 15:47:17 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	rr(node_t **a, node_t **b);
 void	rra(node_t **a);
 void	rrb(node_t **b);
 void	rrr(node_t **a, node_t **b);
-void	print_linked_list(node_t **head);
 node_t	*create_new_node(int value);
 void	make_link_list(node_t **list, char **argv, int argc);
 int		main(int argc, char **argv);
@@ -59,3 +58,9 @@ void	error_check(int argc, char **argv);
 void	error_message(char *string);
 void	check_number(char *str);
 void	check_malloc(void *ptr);
+void	hard_code(node_t **a, node_t **b, int nodes);
+int		check_sorted(node_t	**list);
+int		find_place_of_lowest(node_t **a);
+void	hard_code_3(node_t **a);
+void	hard_code_4(node_t **a, node_t **b);
+void	hard_code_5(node_t **a, node_t **b);
