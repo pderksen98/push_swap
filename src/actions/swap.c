@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:33 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:45:29 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:05:19 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 //Swaps the first two nodes of list a
 //Checks for both the nodes if they are NULL pointer
 //If not: the nodes are swapped
-void	sa(node_t **a)
+void	sa(t_node **a)
 {
-	node_t	*temp1;
-	node_t	*temp2;
+	t_node	*temp1;
+	t_node	*temp2;
 
 	temp1 = *a;
 	if (temp1 == NULL)
@@ -29,16 +29,16 @@ void	sa(node_t **a)
 	temp1->next = temp2->next;
 	temp2->next = temp1;
 	*a = temp2;
-	printf("sa\n");
+	ft_putstr_fd("sa\n", 1);
 }
 
 //Swaps the first two nodes of list b
 //Checks for both the nodes if they are NULL pointer
 //If not: the nodes are swapped
-void	sb(node_t **b)
+void	sb(t_node **b)
 {
-	node_t	*temp1;
-	node_t	*temp2;
+	t_node	*temp1;
+	t_node	*temp2;
 
 	temp1 = *b;
 	if (temp1 == NULL)
@@ -49,11 +49,11 @@ void	sb(node_t **b)
 	temp1->next = temp2->next;
 	temp2->next = temp1;
 	*b = temp2;
-	printf("sb\n");
+	ft_putstr_fd("sb\n", 1);
 }
 
 //Calls both functions sa and sb
-void	ss(node_t **a, node_t **b)
+void	ss(t_node **a, t_node **b)
 {
 	sa(a);
 	sb(b);

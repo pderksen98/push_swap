@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/31 15:48:34 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 17:02:18 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:14:09 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	error_message(char *string)
 {
 	string = NULL;
-	
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

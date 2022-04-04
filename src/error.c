@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/29 19:39:32 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:52:11 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 14:50:31 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ void	error_check(int argc, char **argv)
 	int	*array;
 
 	i = 1;
-	if (argc == 1)
-		error_message("No arguments given\n");
 	while (i < argc)
 	{
 		check_number(argv[i]);

@@ -6,22 +6,24 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:45 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:47:17 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:11:30 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include <unistd.h> //write
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include "libft/libft.h"
+# include <unistd.h> //write
 
 //i is to check whether the node already has correct r_value
 //0 if not, 1 if yes
-typedef struct node 
+typedef struct s_node
 {
-	int		value;
-	int		r_value;
-	int		i;
-	struct 	node* next;
-}	node_t;
+	int				value;
+	int				r_value;
+	int				i;
+	struct s_node	*next;
+}	t_node;
 
 typedef enum e_true
 {
@@ -29,38 +31,37 @@ typedef enum e_true
 	FALSE = 0
 }	t_true;
 
-void	print_stacks(node_t **a, node_t **b);
-void	print_linked_list(node_t **head);
-
-void	pb(node_t **a, node_t **b);
-void	pa(node_t **a, node_t **b);
-void	sa(node_t **a);
-void	sb(node_t **b);
-void	ss(node_t **a, node_t **b);
-void	ra(node_t **a);
-void	rb(node_t **b);
-void	rr(node_t **a, node_t **b);
-void	rra(node_t **a);
-void	rrb(node_t **b);
-void	rrr(node_t **a, node_t **b);
-node_t	*create_new_node(int value);
-void	make_link_list(node_t **list, char **argv, int argc);
+void	print_stacks(t_node **a, t_node **b);
+void	print_linked_list(t_node **head);
+void	pb(t_node **a, t_node **b);
+void	pa(t_node **a, t_node **b);
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
+void	rra(t_node **a);
+void	rrb(t_node **b);
+void	rrr(t_node **a, t_node **b);
+t_node	*create_new_node(int value);
+void	make_link_list(t_node **list, char **argv, int argc);
 int		main(int argc, char **argv);
-void	add_relative_number(node_t **list);
-int		node_counter(node_t **list);
-void	*make_copy(node_t **list, node_t **copy_list);
-void	give_r_value_to_list(node_t **list, node_t **copy);
-void	give_r_value_to_copy(node_t **copy);
-void	bubble_sort_copy(node_t **list, int nodes);
-void	free_list(node_t *list);
-void	radix(node_t **a, node_t **b, int nodes);
+void	add_relative_number(t_node **list);
+int		node_counter(t_node **list);
+void	*make_copy(t_node **list, t_node **copy_list);
+void	give_r_value_to_list(t_node **list, t_node **copy);
+void	give_r_value_to_copy(t_node **copy);
+void	bubble_sort_copy(t_node **list, int nodes);
+void	free_list(t_node *list);
+void	radix(t_node **a, t_node **b, int nodes);
 void	error_check(int argc, char **argv);
 void	error_message(char *string);
 void	check_number(char *str);
 void	check_malloc(void *ptr);
-void	hard_code(node_t **a, node_t **b, int nodes);
-int		check_sorted(node_t	**list);
-int		find_place_of_lowest(node_t **a);
-void	hard_code_3(node_t **a);
-void	hard_code_4(node_t **a, node_t **b);
-void	hard_code_5(node_t **a, node_t **b);
+void	hard_code(t_node **a, t_node **b, int nodes);
+int		check_sorted(t_node	**list);
+int		find_place_of_lowest(t_node **a);
+void	hard_code_3(t_node **a);
+void	hard_code_4(t_node **a, t_node **b);
+void	hard_code_5(t_node **a, t_node **b);

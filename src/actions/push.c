@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 11:24:36 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:45:14 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:05:06 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 //Pushes the first node of list_a to list_b
 //This node will be the first node in list_b
 //If this node is NULL pointer the node is not pushed
-void	pb(node_t **a, node_t **b)
+void	pb(t_node **a, t_node **b)
 {
-	node_t	*temp;
+	t_node	*temp;
 
 	temp = *a;
 	if (temp == NULL)
@@ -25,15 +25,15 @@ void	pb(node_t **a, node_t **b)
 	*a = temp->next;
 	temp->next = *b;
 	*b = temp;
-	printf("pb\n");
+	ft_putstr_fd("pb\n", 1);
 }
 
 //Pushes the first node of list_b to list_a
 //This node will be the first node in list_a
 //If this node is NULL pointer the node is not pushed
-void	pa(node_t **a, node_t **b)
+void	pa(t_node **a, t_node **b)
 {
-	node_t	*temp;
+	t_node	*temp;
 
 	temp = *b;
 	if (temp == NULL)
@@ -41,5 +41,5 @@ void	pa(node_t **a, node_t **b)
 	*b = temp->next;
 	temp->next = *a;
 	*a = temp;
-	printf("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }

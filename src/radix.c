@@ -6,16 +6,16 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/29 18:47:22 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:51:22 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:05:52 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //Checks if the list is already sorted in ascending order
-int	check_sorted(node_t	**list)
+int	check_sorted(t_node	**list)
 {
-	node_t	*temp;
+	t_node	*temp;
 
 	temp = *list;
 	while (temp->next != NULL)
@@ -28,11 +28,11 @@ int	check_sorted(node_t	**list)
 }
 
 //Using radix algoritm to sort list a
-void	radix(node_t **a, node_t **b, int nodes)
+void	radix(t_node **a, t_node **b, int nodes)
 {
 	int		i;
 	int		j;
-	node_t	*temp1;
+	t_node	*temp1;
 
 	j = 0;
 	while (check_sorted(a) == FALSE)

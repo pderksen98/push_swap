@@ -6,16 +6,16 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 11:52:10 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:48:23 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:05:46 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //Frees a linked list
-void	free_list(node_t *list)
+void	free_list(t_node *list)
 {
-	node_t	*temp;
+	t_node	*temp;
 
 	while (list != NULL)
 	{
@@ -27,11 +27,11 @@ void	free_list(node_t *list)
 
 //Creates a new node with value: value
 //This nodes points to NULL (next = NULL)
-node_t	*create_new_node(int value)
+t_node	*create_new_node(int value)
 {
-	node_t	*node;
+	t_node	*node;
 
-	node = malloc(sizeof(node_t));
+	node = malloc(sizeof(t_node));
 	check_malloc(node);
 	node->value = value;
 	node->next = NULL;
@@ -41,10 +41,10 @@ node_t	*create_new_node(int value)
 //Makes a linked list with the command line arguments
 //Each node is added at the end of the list
 //"./pushswap 1 2 3 4" : 1 2 3 4 -> NULL
-void	make_link_list(node_t **list, char **argv, int argc)
+void	make_link_list(t_node **list, char **argv, int argc)
 {
-	node_t	*new_node;
-	node_t	*temp;
+	t_node	*new_node;
+	t_node	*temp;
 	int		value;
 	int		i;
 
@@ -70,12 +70,14 @@ void	make_link_list(node_t **list, char **argv, int argc)
 
 int	main(int argc, char **argv)
 {
-	node_t	*list_a;
-	node_t	*list_b;
+	t_node	*list_a;
+	t_node	*list_b;
 	int		nodes;
 
 	list_a = NULL;
 	list_b = NULL;
+	if (argc == 1)
+		return (0);
 	error_check(argc, argv);
 	make_link_list(&list_a, argv, argc);
 	add_relative_number(&list_a);

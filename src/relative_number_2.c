@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/29 15:09:49 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/29 15:11:08 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:06:01 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 //Gives the relative value to the bubble sorted copy
 //Usefull when number is converted to binary
-void	give_r_value_to_copy(node_t **copy)
+void	give_r_value_to_copy(t_node **copy)
 {
-	node_t	*temp;
+	t_node	*temp;
 	int		i;
 
 	temp = *copy;
@@ -31,10 +31,10 @@ void	give_r_value_to_copy(node_t **copy)
 
 //Gives the correct r_value to the original list
 //With use of r_value of copy list
-void	give_r_value_to_list(node_t **list, node_t **copy)
+void	give_r_value_to_list(t_node **list, t_node **copy)
 {
-	node_t	*temp;
-	node_t	*temp2;
+	t_node	*temp;
+	t_node	*temp2;
 
 	temp = *copy;
 	while (temp != NULL)

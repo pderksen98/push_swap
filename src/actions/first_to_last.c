@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 13:33:19 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:44:39 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:04:28 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 //First node of A will be the last node in A
 //Checks if there is more then one node
-void	ra(node_t **a)
+void	ra(t_node **a)
 {
-	node_t	*first;
-	node_t	*last;
+	t_node	*first;
+	t_node	*last;
 
 	last = *a;
 	if (last == NULL)
@@ -30,15 +30,15 @@ void	ra(node_t **a)
 	*a = first->next;
 	last->next = first;
 	first->next = NULL;
-	printf("ra\n");
+	ft_putstr_fd("ra\n", 1);
 }
 
 //First node of B will be the last node in B
 //Checks if there is more then one node
-void	rb(node_t **b)
+void	rb(t_node **b)
 {
-	node_t	*first;
-	node_t	*last;
+	t_node	*first;
+	t_node	*last;
 
 	last = *b;
 	if (last == NULL)
@@ -51,11 +51,11 @@ void	rb(node_t **b)
 	*b = first->next;
 	last->next = first;
 	first->next = NULL;
-	printf("rb\n");
+	ft_putstr_fd("rb\n", 1);
 }
 
 //Calls both functions ra and rb
-void	rr(node_t **a, node_t **b)
+void	rr(t_node **a, t_node **b)
 {
 	ra(a);
 	rb(b);

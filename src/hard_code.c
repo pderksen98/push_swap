@@ -6,18 +6,18 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/30 12:59:41 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:53:49 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:05:40 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //Finds and returns the node of the lowest value
-int	find_place_of_lowest(node_t **a)
+int	find_place_of_lowest(t_node **a)
 {
 	int		i;
 	int		lowest_value;
-	node_t	*temp;
+	t_node	*temp;
 
 	temp = *a;
 	i = 1;
@@ -38,19 +38,20 @@ int	find_place_of_lowest(node_t **a)
 }
 
 //Hard codes 3 input arguments
-void	hard_code_3(node_t **a)
+void	hard_code_3(t_node **a)
 {
-	node_t	*temp;
+	t_node	*temp;
 
 	temp = *a;
+	if (check_sorted(a) == TRUE)
+		return ;
 	if (temp->value < temp->next->value
 		&& temp->value < temp->next->next->value)
 	{
 		rra(a);
 		sa(a);
 	}
-	else if (temp->value < temp->next->value
-		&& temp->value > temp->next->next->value)
+	else if (temp->value < temp->next->value)
 		rra(a);
 	else if (temp->value < temp->next->next->value)
 		sa(a);
@@ -59,12 +60,12 @@ void	hard_code_3(node_t **a)
 	else
 	{
 		ra(a);
-		ra(a);
+		sa(a);
 	}
 }
 
 //Hard codes 4 input arguments
-void	hard_code_4(node_t **a, node_t **b)
+void	hard_code_4(t_node **a, t_node **b)
 {
 	int	lowest;
 
@@ -87,7 +88,7 @@ void	hard_code_4(node_t **a, node_t **b)
 }
 
 //Hard codes 5 input arguments
-void	hard_code_5(node_t **a, node_t **b)
+void	hard_code_5(t_node **a, t_node **b)
 {
 	int	lowest;
 
@@ -116,9 +117,9 @@ void	hard_code_5(node_t **a, node_t **b)
 
 //For 2, 3, 4 and 5 input arguments
 //Hard codes the swaps for better efficiency
-void	hard_code(node_t **a, node_t **b, int nodes)
+void	hard_code(t_node **a, t_node **b, int nodes)
 {
-	node_t	*temp;
+	t_node	*temp;
 
 	temp = *a;
 	if (check_sorted(a) == TRUE)

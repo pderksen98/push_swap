@@ -6,7 +6,7 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/28 12:25:04 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/01/25 10:47:14 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:13:19 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <stdio.h>
+
+typedef enum e_int
+{
+	INT_MAX = 2147483647,
+	INT_MIN = -2147483648
+}	t_int;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

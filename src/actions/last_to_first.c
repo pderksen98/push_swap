@@ -6,17 +6,17 @@
 /*   By: pderksen <pderksen@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/25 13:35:03 by pderksen      #+#    #+#                 */
-/*   Updated: 2022/03/31 15:45:04 by pderksen      ########   odam.nl         */
+/*   Updated: 2022/04/04 15:04:39 by pderksen      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
 //Last node in list A will become the first node in A
-void	rra(node_t **a)
+void	rra(t_node **a)
 {
-	node_t	*last;
-	node_t	*temp;
+	t_node	*last;
+	t_node	*temp;
 
 	last = *a;
 	if (last == NULL)
@@ -32,14 +32,14 @@ void	rra(node_t **a)
 	temp->next = NULL;
 	last->next = *a;
 	*a = last;
-	printf("rra\n");
+	ft_putstr_fd("rra\n", 1);
 }
 
 //Last node in list B will become the first node in B
-void	rrb(node_t **b)
+void	rrb(t_node **b)
 {
-	node_t	*last;
-	node_t	*temp;
+	t_node	*last;
+	t_node	*temp;
 
 	last = *b;
 	if (last == NULL)
@@ -55,11 +55,11 @@ void	rrb(node_t **b)
 	temp->next = NULL;
 	last->next = *b;
 	*b = last;
-	printf("rrb\n");
+	ft_putstr_fd("rrb\n", 1);
 }
 
 //Calls both rra and rrb functions
-void	rrr(node_t **a, node_t **b)
+void	rrr(t_node **a, t_node **b)
 {
 	rra(a);
 	rrb(b);
