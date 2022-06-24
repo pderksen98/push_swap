@@ -2,11 +2,12 @@
 
 ## Project
 
-The challenge of this project was to sort a random list of integers using the smallest number of moves, 2 stacks and a limited set of operations.
+The challenge of this 42 project was to sort a random list of integers using the smallest amount of operations, 2 stacks and a limited set of operations.
+The aim of this project is to learn how to write an algorithm and how to optimize it.
 
 You start of with two empty stacks: **A** and **B**. You are given a random list of integers via command line arguments.
 
-The following moves are allowed:
+The following operations are allowed:
 
 | Instructions | Description   
 | -------------| ------------- | 
